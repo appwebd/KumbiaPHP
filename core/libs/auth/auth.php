@@ -288,8 +288,10 @@ class Auth {
      * @return string
      */
     public static function get($var = '') {
-        if ($var) {
-            return $_SESSION['KUMBIA_AUTH_IDENTITY'][Config::get('config.application.namespace_auth')][$var];
+        if ($var && isset($_SESSION['KUMBIA_AUTH_IDENTITY'][Config::get('config.application.namespace_auth')][$var])) {
+            return $_SESSION['KUMBIA_AUTH_IDENTITY'][
+                        Config::get('config.application.namespace_auth')
+                                                    ][$var];
         }
     }
 
